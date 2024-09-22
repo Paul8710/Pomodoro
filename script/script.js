@@ -64,4 +64,31 @@ function lancerDecompte(){
     
 }
 
+function verifForm(){
+    let minuteF = parseInt(document.getElementById("nbMin").value);
+    let secondeF = parseInt(document.getElementById("nbSec").value);
+
+    if(minuteF>=0 && minuteF<60){
+        if(secondeF>=0 && secondeF<60){
+            return true;
+        }
+    }
+    throw new Error("Vérifier que les minutes et les secondes soient comprises entre 0 et 59 ");
+}
+
+
+document.getElementById("monFormulaire").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    try {
+        if(verifForm()){
+            document.getElementById("monFormulaire").submit();
+        }
+        
+    } catch (error) {
+        alert(error.message);
+        
+    }
+})
+
 

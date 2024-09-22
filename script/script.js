@@ -1,5 +1,6 @@
 let minute = 25;
 let seconde = 0;
+let id;
 document.getElementById("affichage").textContent = minute + ":" + seconde;
 
 function decompte() {
@@ -16,6 +17,21 @@ function decompte() {
 
 let bouton = document.getElementById('monBouton');
 
-bouton.addEventListener('click', () => {
-    setInterval(decompte,1000);
-})
+
+function arretDecompte(){
+    clearInterval(id);
+    document.getElementById("monBouton").textContent = "▶";
+    bouton.removeEventListener('click', arretDecompte);
+    bouton.addEventListener('click', lancerDecompte);
+}
+
+
+function lancerDecompte(){
+    id = setInterval(decompte,1000);
+    document.getElementById("monBouton").textContent = "⏹︎";
+    bouton.addEventListener('click', arretDecompte);
+    bouton.removeEventListener('click', lancerDecompte);
+    
+}
+
+bouton.addEventListener('click', lancerDecompte);

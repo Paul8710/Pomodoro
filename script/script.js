@@ -1,8 +1,10 @@
+//Stock le temps du compteur actuel
 let minute = 25;
 let seconde = 0;
+//Stock le temps de travail
 let minuteT = 25;
 let secondeT = 0;
-
+//Stock le temps de pause
 let minuteP = 5;
 let secondeP = 0;
 
@@ -71,7 +73,7 @@ function lancerDecompte(){
     bouton.removeEventListener('click', lancerDecompte);
     
 }
-
+// Fonction permettant de vérifier les informations saisies par l'utilisateur dans le formulaire
 function verifForm(){
     let verifMinuteT = parseInt(document.getElementById("nbMin").value);
     let verifSecondeT = parseInt(document.getElementById("nbSec").value);
@@ -84,13 +86,14 @@ function verifForm(){
             return true;
         }
     }
+    // Envoie un message d'erreur
     throw new Error("Vérifier que les minutes et les secondes soient comprises entre 0 et 59 ");
 }
 
-
+// Permet de lancer la vérification du formulaire quand on clique sur le bouton pour l'envoyer
 document.getElementById("monFormulaire").addEventListener("submit", function(event) {
-    event.preventDefault();
-
+    event.preventDefault(); // Permet d'empêcher le comportement par défaut
+    // Vérifier le formulaire sinon renvoie une erreur
     try {
         if(verifForm()){
             minuteT = parseInt(document.getElementById("nbMin").value);
@@ -99,6 +102,7 @@ document.getElementById("monFormulaire").addEventListener("submit", function(eve
             secondeP = parseInt(document.getElementById("nbSecP").value);
             minute = minuteT;
             seconde = secondeT;
+            //Actualise l'affichage
             document.getElementById("affichage").textContent = minute + ":" + seconde;
         }
         

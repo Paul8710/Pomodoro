@@ -1,5 +1,11 @@
-let minute = 0;
-let seconde = 15;
+let minute = 25;
+let seconde = 0;
+let minuteT = 25;
+let secondeT = 0;
+
+let minuteP = 5;
+let secondeP = 0;
+
 // la variable id permet de stocker l'id de l'intervalle afin de pouvoir l'arreter
 let id;
 // permet de savoir si le prochain est un temps de pause ou non
@@ -27,15 +33,15 @@ function decompte() {
     document.getElementById("affichage").textContent = minute + ":" + seconde;
     if(seconde == 0 && minute == 0){
         if(pause){
-            minute = 0;
-            seconde = 10;
+            minute = minuteP;
+            seconde = secondeP;
             document.getElementById("intitule").textContent = "En pause =";
             document.getElementById("affichage").textContent = minute + ":" + seconde;
             pause = false;
         }
         else {
-            minute = 25;
-            seconde = 0;
+            minute = minuteT;
+            seconde = secondeT;
             document.getElementById("intitule").textContent = "Temps de travail =";
             document.getElementById("affichage").textContent = minute + ":" + seconde;
             pause = true;
@@ -47,8 +53,8 @@ function decompte() {
 //Permet de rénitialiser le décompte quand on clique sur le bouton
 function arretDecompte(){
     clearInterval(id);
-    minute = 25;
-    seconde = 0;
+    minute = minuteT;
+    seconde = secondeT;
     document.getElementById("affichage").textContent = minute + ":" + seconde;
     document.getElementById("monBouton").textContent = "▶";
     bouton.removeEventListener('click', arretDecompte);
@@ -57,6 +63,8 @@ function arretDecompte(){
 
 //Permet de lancer le décompte quand on clique sur le bouton
 function lancerDecompte(){
+    minute = minuteT;
+    seconde = secondeT;
     id = setInterval(decompte,1000);
     document.getElementById("monBouton").textContent = "⏹︎";
     bouton.addEventListener('click', arretDecompte);
@@ -65,11 +73,14 @@ function lancerDecompte(){
 }
 
 function verifForm(){
-    let minuteF = parseInt(document.getElementById("nbMin").value);
-    let secondeF = parseInt(document.getElementById("nbSec").value);
+    let verifMinuteT = parseInt(document.getElementById("nbMin").value);
+    let verifSecondeT = parseInt(document.getElementById("nbSec").value);
+    let verifMinuteP = parseInt(document.getElementById("nbMinP").value);
+    let verifSecondeP = parseInt(document.getElementById("nbSecP").value);
 
-    if(minuteF>=0 && minuteF<60){
-        if(secondeF>=0 && secondeF<60){
+
+    if(verifMinuteT>=0 && verifMinuteT<60 || verifMinuteP>=0 && verifMinuteP<60){
+        if(verifSecondeT>=0 && verifSecondeT<60 || verifSecondeP>=0 && verifSecondeP<60){
             return true;
         }
     }
@@ -82,7 +93,13 @@ document.getElementById("monFormulaire").addEventListener("submit", function(eve
 
     try {
         if(verifForm()){
-            document.getElementById("monFormulaire").submit();
+            minuteT = parseInt(document.getElementById("nbMin").value);
+            secondeT = parseInt(document.getElementById("nbSec").value);
+            minuteP = parseInt(document.getElementById("nbMinP").value);
+            secondeP = parseInt(document.getElementById("nbSecP").value);
+            minute = minuteT;
+            seconde = secondeT;
+            document.getElementById("affichage").textContent = minute + ":" + seconde;
         }
         
     } catch (error) {

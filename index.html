@@ -7,21 +7,26 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     </head>
     <body>
-        <form id="monFormulaire">
-            <label>Choissisez un nombre de minute</label>
-            <input type="number" id="nbMin">
-            <label>Choissisez un nombre de seconde</label>
-            <input type="number" id="nbSec">
-            <label>Choissisez un nombre de minute</label>
-            <input type="number" id="nbMinP">
-            <label>Choissisez un nombre de seconde</label>
-            <input type="number" id="nbSecP">
-            <button id="formBouton" type="submit">Envoyer</button>
-        </form>
-        <button id="monBouton"> ▶ </button>
-        <p> <span id=intitule></span> <span id="affichage"></span></p>
+        <div class="container text-center">
+            <form id="monFormulaire">
+                <label>Choissisez un nombre de minute</label>
+                <input type="number" id="nbMin" class="form-control mb-2">
+                <label>Choissisez un nombre de seconde</label>
+                <input type="number" id="nbSec" class="form-control mb-2">
+                <label>Choissisez un nombre de minute</label>
+                <input type="number" id="nbMinP" class="form-control mb-2">
+                <label>Choissisez un nombre de seconde</label>
+                <input type="number" id="nbSecP" class="form-control mb-2">
+                <button id="formBouton" type="submit" class="btn btn-danger">Envoyer</button>
+            </form>
+            <div class="mb-4">
+                <p> <span id=intitule></span> <span id="affichage" class="display-1"></span></p>
+            </div>
+            <button id="monBouton" class="btn btn-light btn-lg"> ▶ </button>
+        </div>
         <script src="script/script.js" async defer></script>
     </body>
 </html>

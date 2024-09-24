@@ -1,0 +1,125 @@
+/* Définir la taille de la page et le style général */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #D50000; /* Rouge vif */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Style du conteneur principal */
+form, #monBouton, p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#monFormulaire {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Style des labels et inputs */
+label {
+    color: #D50000;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: 100%;
+    padding: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Bouton envoyer du formulaire */
+button#formBouton {
+    background-color: #D50000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button#formBouton:hover {
+    background-color: #FF5252;
+}
+
+/* Style du bouton principal de lancement */
+#monBouton {
+    font-size: 30px;
+    padding: 10px 20px;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    color: #D50000;
+    cursor: pointer;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+}
+
+#monBouton:hover {
+    background-color: #FF5252;
+}
+
+/* Style de l'affichage du timer */
+p {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#intitule {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+#affichage {
+    font-size: 50px;
+    color: white;
+    margin-top: 10px;
+}
+
+/* Cercle autour du timer */
+p {
+    position: relative;
+}
+
+#affichage {
+    display: inline-block;
+    border: 5px solid #FFD700; /* Jaune doré pour correspondre à l'image */
+    border-radius: 50%;
+    padding: 20px;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive pour petits écrans */
+@media screen and (max-width: 600px) {
+    #affichage {
+        width: 120px;
+        height: 120px;
+        line-height: 120px;
+        font-size: 40px;
+    }
+}

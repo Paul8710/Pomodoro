@@ -3,7 +3,22 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #D50000 !important;
+    background-color: #D50000 !important; /* Rouge vif */
+}
+h1{
+    text-align: center;
+    color : white;
+    padding : 10px;
+    margin-bottom: 10px;
+}
+
+#timeT {
+    font-size: 25px;
+    margin-right: 5px;
+}
+#timeP {
+    font-size: 25px;
+    margin-left: 5px;
 }
 
 /* Le conteneur principal pour centrer le contenu */
@@ -13,16 +28,6 @@ html, body {
     justify-content: center;
     align-items: center;
     min-height: 100vh; /* S'assure que le conteneur couvre toute la hauteur */
-}
-
-/* Formulaire stylisé, réduit à 50% de la largeur et centré */
-#monFormulaire {
-    background-color: #ffffff;
-    border-radius: 10px;
-    padding: 20px;
-    width: 50%; /* Réduit à 50% de la largeur */
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    margin: 20px auto; /* Centre le formulaire horizontalement */
 }
 
 /* Timer grand et centré */
@@ -46,6 +51,44 @@ html, body {
 
 #monBouton:hover {
     background-color: #FF5252;
+}
+
+/* Formulaire stylisé avec une taille fixe */
+#monFormulaire {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    width: 50%; /* Taille du formulaire conservée */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    margin-top: 30px;
+}
+
+/* Ajustement des groupes de champs pour qu'ils soient côte à côte */
+.form-group .input-group {
+    display: flex;
+    justify-content: space-between; /* Pour espacer les champs */
+    align-items: center;
+}
+
+/* Réduction des champs d'entrée */
+.input-group input {
+    width: 40%; /* Réduit la largeur des champs à 40% de l'espace disponible */
+    margin: 0 10px; /* Espacement horizontal entre les champs */
+}
+
+/* Ajustement du texte des labels pour alignement */
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+/* Bouton d'envoi */
+#formBouton {
+    padding: 5px 20px;
+    font-size: 16px;
 }
 
 /* Ajustement du titre "Temps de travail" */

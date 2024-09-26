@@ -18,7 +18,7 @@ let bouton = document.getElementById('monBouton');
 bouton.addEventListener('click', lancerDecompte);
 
 //Affichage Initiale
-document.getElementById("intitule").textContent = "Temps de travail =";
+document.getElementById("timeT").style.color="yellow";
 document.getElementById("affichage").textContent = minute + ":" + seconde;
 
 

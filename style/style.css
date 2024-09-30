@@ -5,28 +5,30 @@ html, body {
     padding: 0;
     background-color: #D50000 !important; /* Rouge vif */
 }
-h1{
+
+h1 {
     text-align: center;
-    color : white;
-    padding : 10px;
+    color: white;
+    padding: 10px;
     margin-bottom: 10px;
 }
 
-#moncercle{
-    background:#D50000;
-    border-radius:50%;
-    width:360px;
-    height:360px;
-    border:2px solid #FFFFFF;
+#moncercle {
+    background: #D50000;
+    border-radius: 50%;
+    width: 360px;
+    height: 360px;
+    border: 2px solid #FFFFFF;
     display: flex;
     justify-content: center;
-    align-items: center; 
-  }
+    align-items: center;
+}
 
 #timeT {
     font-size: 25px;
     margin-right: 5px;
 }
+
 #timeP {
     font-size: 25px;
     margin-left: 5px;
@@ -57,10 +59,10 @@ h1{
     display: contents;
 }
 
+/* Formulaire en bas de la page */
 #formulaire {
-    display: none;
-    justify-content: center;
-    align-items: center;
+    display: none; /* Masqué par défaut */
+    margin-top: 20px; /* Espacement au-dessus du formulaire */
 }
 
 /* Bouton de démarrage/arrêt */
@@ -85,9 +87,8 @@ h1{
     background-color: #ffffff;
     border-radius: 10px;
     padding: 15px;
-    width: 50%; /* Taille du formulaire conservée */
+    width: 100%; /* Taille du formulaire adaptée */
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    margin-top: 30px;
 }
 
 /* Ajustement des groupes de champs pour qu'ils soient côte à côte */
@@ -99,8 +100,8 @@ h1{
 
 /* Réduction des champs d'entrée */
 .input-group input {
-    width: 40%; /* Réduit la largeur des champs à 40% de l'espace disponible */
-    margin: 0 10px; /* Espacement horizontal entre les champs */
+    width: 45%; /* Réduit la largeur des champs à 45% de l'espace disponible */
+    margin: 0 5px; /* Espacement horizontal entre les champs */
 }
 
 /* Ajustement du texte des labels pour alignement */
@@ -114,13 +115,7 @@ h1{
 
 /* Bouton d'envoi */
 #formBouton {
-    padding: 5px 20px;
+    width: 100%; /* Bouton de soumission en pleine largeur */
+    padding: 10px;
     font-size: 16px;
 }
-
-/* Ajustement du titre "Temps de travail" */
-#intitule {
-    color: white;
-    font-size: 24px;
-}
-

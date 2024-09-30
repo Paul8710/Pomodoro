@@ -1,52 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Pomodoro</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style/style.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-        <script src="https://kit.fontawesome.com/c0e52b5ef8.js" crossorigin="anonymous"></script>
-    </head>
-    <body>
-        <div id="disparition">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Pomodoro</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/c0e52b5ef8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="disparition">
         <h1>Timer Pomodoro</h1>
-            <div class="container text-center">
-                
-                <div class="mb-4">
-                    <p> <span id="timeT">Travail</span> <span id="timeP">Pause</span></p>
-                    <div id="moncercle">
-                    <p> <span id="affichage"></span></p>
-                    </div>
-                </div>
-                <button id="monBouton" class="btn btn-light btn-lg"> <i class="fa-solid fa-play"></i> </button>
-                
-                <i id="gear" class="fa-solid fa-gear btn btn-light btn-lg"></i>
-                
-                
-                <div id="formulaire">
-                    <form id="monFormulaire" class="form-inline justify-content-center">
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="nbMin" class="mr-2 d-block">Travail :</label>
-                            <div class="input-group">
-                                <input type="number" id="nbMin" class="form-control" placeholder="Min">
-                                <input type="number" id="nbSec" class="form-control ml-2" placeholder="Sec">
-                            </div>
-                        </div>
-                        <div class="form-group mx-sm-3 mb-2">
-                            <label for="nbMinP" class="mr-2 d-block">Pause :</label>
-                            <div class="input-group">
-                                <input type="number" id="nbMinP" class="form-control" placeholder="Min">
-                                <input type="number" id="nbSecP" class="form-control ml-2" placeholder="Sec">
-                            </div>
-                        </div>
-                        <button id="formBouton" type="submit" class="btn btn-danger mt-3">Envoyer</button>
-                    </form>
+        <div class="container text-center">
+            <div class="mb-4">
+                <p><span id="timeT">Travail</span> <span id="timeP">Pause</span></p>
+                <div id="moncercle">
+                    <p><span id="affichage"></span></p>
                 </div>
             </div>
+            <button id="monBouton" class="btn btn-light btn-lg"><i class="fa-solid fa-play"></i></button>
+            <i id="gear" class="fa-solid fa-gear btn btn-light btn-lg"></i>
+            
+            <!-- Le formulaire en bas de la page -->
+            <div id="formulaire" class="form-container">
+                <form id="monFormulaire" class="form-inline justify-content-center">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="nbMin" class="mr-2 d-block">Travail :</label>
+                        <div class="input-group">
+                            <input type="number" id="nbMin" class="form-control" placeholder="Min">
+                            <input type="number" id="nbSec" class="form-control ml-2" placeholder="Sec">
+                        </div>
+                    </div>
+                    <div class="form-group mx-sm-3 mb-2">
+                        <label for="nbMinP" class="mr-2 d-block">Pause :</label>
+                        <div class="input-group">
+                            <input type="number" id="nbMinP" class="form-control" placeholder="Min">
+                            <input type="number" id="nbSecP" class="form-control ml-2" placeholder="Sec">
+                        </div>
+                    </div>
+                    <button id="formBouton" type="submit" class="btn btn-danger mt-3">Envoyer</button>
+                </form>
+            </div>
         </div>
-        <script src="script/script.js" async defer></script>
-    </body>
+    </div>
+    <script src="script/script.js" async defer></script>
+</body>
 </html>

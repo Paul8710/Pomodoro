@@ -43,16 +43,6 @@ Ce projet implémente une technique de gestion du temps connue sous le nom de Po
 3. Le minuteur passera automatiquement d'une session de travail à une pause et vice versa.
 4. Cliquez sur l'icône de réinitialisation pour remettre le minuteur à zéro.
 
-## Contribuer
-
-Les contributions sont les bienvenues ! Si vous souhaitez contribuer, veuillez suivre ces étapes :
-
-1. Fork le projet
-2. Créez une nouvelle branche (`git checkout -b feature/MonNouveauFeature`)
-3. Commitez vos modifications (`git commit -m 'Ajoute une nouvelle fonctionnalité'`)
-4. Poussez la branche (`git push origin feature/MonNouveauFeature`)
-5. Ouvrez une Pull Request
-
 ## Auteurs
 
 - [Paul Letellier](https://github.com/Paul8710)

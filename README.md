@@ -31,7 +31,7 @@ Ce projet implémente une technique de gestion du temps connue sous le nom de Po
 2. Accédez au répertoire du projet :
 
    ```bash
-   cd pomodoro-timer
+   cd Pomodoro
    ```
 
 3. Ouvrez `index.html` dans votre navigateur pour exécuter l'application.

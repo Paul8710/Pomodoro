@@ -27,11 +27,13 @@ h1 {
 #timeT {
     font-size: 25px;
     margin-right: 5px;
+    color :white;
 }
 
 #timeP {
     font-size: 25px;
     margin-left: 5px;
+    color: white;
 }
 
 .enPause {

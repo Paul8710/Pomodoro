@@ -9,36 +9,28 @@ let minuteP = 5;
 let secondeP = 0;
 
 let gear = true;
+let id; // Stock l'ID de l'intervalle pour le décompte
+let pause = true; // Pour savoir si on est en pause ou en travail
 
-// la variable id permet de stocker l'id de l'intervalle afin de pouvoir l'arrêter
-let id;
-// permet de savoir si le prochain est un temps de pause ou non
-let pause = true;
-// lie le bouton HTML au javascript
+// Lier le bouton HTML au JavaScript
 let bouton = document.getElementById('monBouton');
-// lance la fonction lancerDecompte quand le bouton est cliqué
-bouton.addEventListener('click', lancerDecompte);
-
 let formulaire = document.getElementById('formulaire'); // Sélection du formulaire
 let bdisparu = document.getElementById('gear');
+
+// Affichage initial
+document.getElementById("timeT").style.color = "yellow";
+document.getElementById("affichage").textContent = `${minute}:${seconde < 10 ? '0' : ''}${seconde}`;
+
+// Lance la fonction disparitus quand le bouton est cliqué
 bdisparu.addEventListener('click', disparitus);
 
-// Affichage Initiale
-document.getElementById("timeT").style.color = "yellow";
-document.getElementById("affichage").textContent = minute + ":" + seconde + "0";
-
+// Fonction pour afficher ou masquer le formulaire
 function disparitus() {
-    // Affiche ou masque le formulaire lorsque le bouton est cliqué
-    if (gear) {
-        formulaire.style.display = "block"; // Affiche le formulaire
-        gear = false;
-    } else {
-        formulaire.style.display = "none"; // Masque le formulaire
-        gear = true;
-    }
+    formulaire.style.display = gear ? "block" : "none"; // Affiche ou masque le formulaire
+    gear = !gear; // Inverse l'état
 }
 
-// Permet de décompter le temps
+// Fonction de décompte
 function decompte() {
     if (seconde == 0 && minute != 0) {
         seconde = 59;
@@ -46,9 +38,9 @@ function decompte() {
     } else {
         seconde -= 1;
     }
-    
+
     // Affiche le temps
-    document.getElementById("affichage").textContent = minute + ":" + (seconde < 10 ? "0" + seconde : seconde);
+    document.getElementById("affichage").textContent = `${minute}:${seconde < 10 ? '0' : ''}${seconde}`;
 
     if (seconde == 0 && minute == 0) {
         if (pause) {
@@ -57,39 +49,46 @@ function decompte() {
             document.getElementById("moncercle").style.background = "green";
             document.getElementById("timeP").style.color = "yellow";
             document.getElementById("timeT").style.color = "white";
-            document.getElementById("affichage").textContent = minute + ":" + (seconde < 10 ? "0" + seconde : seconde);
-            pause = false;
         } else {
             minute = minuteT;
             seconde = secondeT;
             document.getElementById("moncercle").style.background = "#D50000";
             document.getElementById("timeT").style.color = "yellow";
             document.getElementById("timeP").style.color = "white";
-            document.getElementById("affichage").textContent = minute + ":" + (seconde < 10 ? "0" + seconde : seconde);
-            pause = true;
         }
+        pause = !pause; // Inverser l'état de pause
     }
+}
+
+// Fonction pour lancer ou arrêter le décompte
+function toggleDecompte() {
+    if (id) {
+        arretDecompte();
+    } else {
+        lancerDecompte();
+    }
+}
+
+// Permet de lancer le décompte quand on clique sur le bouton
+function lancerDecompte() {
+    id = setInterval(decompte, 1000);
+    // Changer l'icône de play à reset
+    bouton.className = "fa-solid fa-arrow-rotate-right fa-3x"; // Met à jour la classe
+    bouton.removeEventListener('click', lancerDecompte); // Retire l'ancien événement
+    bouton.addEventListener('click', arretDecompte); // Ajoute l'événement pour arrêter
 }
 
 // Permet de réinitialiser le décompte quand on clique sur le bouton
 function arretDecompte() {
     clearInterval(id);
+    id = null; // Réinitialiser id
     minute = minuteT;
     seconde = secondeT;
-    document.getElementById("affichage").textContent = minute + ":" + (seconde < 10 ? "0" + seconde : seconde);
-    document.getElementById("monBouton").innerHTML = "<i class='fa-solid fa-play'></i>";
-    bouton.removeEventListener('click', arretDecompte);
-    bouton.addEventListener('click', lancerDecompte);
-}
-
-// Permet de lancer le décompte quand on clique sur le bouton
-function lancerDecompte() {
-    minute = minuteT;
-    seconde = secondeT;
-    id = setInterval(decompte, 1000);
-    document.getElementById("monBouton").innerHTML = "<i class='fa-solid fa-arrow-rotate-right'></i>";
-    bouton.addEventListener('click', arretDecompte);
-    bouton.removeEventListener('click', lancerDecompte);
+    document.getElementById("affichage").textContent = `${minute}:${seconde < 10 ? '0' : ''}${seconde}`;
+    // Changer l'icône de reset à play
+    bouton.className = "fa-solid fa-play fa-3x"; // Met à jour la classe
+    bouton.removeEventListener('click', arretDecompte); // Retire l'ancien événement
+    bouton.addEventListener('click', toggleDecompte); // Rétablit l'événement pour lancer
 }
 
 // Fonction permettant de vérifier les informations saisies par l'utilisateur dans le formulaire
@@ -123,9 +122,12 @@ document.getElementById("monFormulaire").addEventListener("submit", function(eve
             minute = minuteT;
             seconde = secondeT;
             // Actualise l'affichage
-            document.getElementById("affichage").textContent = minute + ":" + (seconde < 10 ? "0" + seconde : seconde);
+            document.getElementById("affichage").textContent = `${minute}:${seconde < 10 ? '0' : ''}${seconde}`;
         }
     } catch (error) {
         alert(error.message);
     }
 });
+
+// Ajout de l'événement pour démarrer le décompte
+bouton.addEventListener('click', toggleDecompte);

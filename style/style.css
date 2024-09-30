@@ -65,22 +65,14 @@ h1 {
     margin-top: 20px; /* Espacement au-dessus du formulaire */
 }
 
-/* Bouton de démarrage/arrêt */
-#monBouton {
-    background-color: white;
-    color: #D50000;
-    border: none;
-    padding: 10px 30px;
-    border-radius: 50%;
-    font-size: 30px;
-    cursor: pointer;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s ease;
+/* Disposition des boutons */
+.button-container {
+    display: flex; /* Utilisation de flexbox */
+    justify-content: center; /* Centre les boutons horizontalement */
+    margin-top: 20px; /* Espacement au-dessus des boutons */
 }
 
-#monBouton:hover {
-    background-color: #FF5252;
-}
+
 
 /* Formulaire stylisé avec une taille fixe */
 #monFormulaire {

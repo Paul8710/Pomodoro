@@ -8,6 +8,8 @@ let secondeT = 0;
 let minuteP = 5;
 let secondeP = 0;
 
+let gear = true;
+
 // la variable id permet de stocker l'id de l'intervalle afin de pouvoir l'arreter
 let id;
 // permet de savoir si le prochain est un temps de pause ou non
@@ -17,9 +19,25 @@ let bouton = document.getElementById('monBouton');
 // lance la fonction lancerDecompte quand le bouton est cliqué
 bouton.addEventListener('click', lancerDecompte);
 
+let bdisparu = document.getElementById('gear');
+bdisparu.addEventListener('click', disparitus);
+
 //Affichage Initiale
 document.getElementById("timeT").style.color="yellow";
-document.getElementById("affichage").textContent = minute + ":" + seconde;
+document.getElementById("affichage").textContent = minute + ":" + seconde + "0";
+
+//Ne fonctionne pas demander a chat gpt
+function disparitus(){
+    if(gear==true){
+        document.getElementById("disparition").style.display = "none";
+        document.getElementById("formulaire").style.display = "contents";
+        gear==false;
+    } else {
+        document.getElementById("disparition").style.display = "contents";
+        document.getElementById("formulaire").style.display = "none";
+        gear==true;
+    }
+}
 
 
 //Permet de décompter le temps
@@ -32,19 +50,28 @@ function decompte() {
     } else {
         seconde -= 1;
     }
-    document.getElementById("affichage").textContent = minute + ":" + seconde;
+    if(seconde == 0){
+        document.getElementById("affichage").textContent = minute + ":" + seconde + "0";
+    } else {
+        document.getElementById("affichage").textContent = minute + ":" + seconde;
+    }
+   
     if(seconde == 0 && minute == 0){
         if(pause){
             minute = minuteP;
             seconde = secondeP;
-            document.getElementById("intitule").textContent = "En pause =";
+            document.getElementById("moncercle").style.background = "green";
+            document.getElementById("timeP").style.color="yellow";
+            document.getElementById("timeT").style.color="white";
             document.getElementById("affichage").textContent = minute + ":" + seconde;
             pause = false;
         }
         else {
             minute = minuteT;
             seconde = secondeT;
-            document.getElementById("intitule").textContent = "Temps de travail =";
+            document.getElementById("moncercle").style.background = "#D50000";
+            document.getElementById("timeT").style.color="yellow";
+            document.getElementById("timeP").style.color="white";
             document.getElementById("affichage").textContent = minute + ":" + seconde;
             pause = true;
         }
@@ -57,8 +84,12 @@ function arretDecompte(){
     clearInterval(id);
     minute = minuteT;
     seconde = secondeT;
-    document.getElementById("affichage").textContent = minute + ":" + seconde;
-    document.getElementById("monBouton").textContent = "▶";
+    if(seconde == 0){
+        document.getElementById("affichage").textContent = minute + ":" + seconde + "0";
+    } else {
+        document.getElementById("affichage").textContent = minute + ":" + seconde;
+    }
+    document.getElementById("monBouton").innerHTML = "<i class='fa-solid fa-play'></i>";
     bouton.removeEventListener('click', arretDecompte);
     bouton.addEventListener('click', lancerDecompte);
 }
@@ -68,7 +99,7 @@ function lancerDecompte(){
     minute = minuteT;
     seconde = secondeT;
     id = setInterval(decompte,1000);
-    document.getElementById("monBouton").textContent = "⏹︎";
+    document.getElementById("monBouton").innerHTML = "<i class='fa-solid fa-arrow-rotate-right'></i>";
     bouton.addEventListener('click', arretDecompte);
     bouton.removeEventListener('click', lancerDecompte);
     
@@ -81,9 +112,11 @@ function verifForm(){
     let verifSecondeP = parseInt(document.getElementById("nbSecP").value);
 
 
-    if(verifMinuteT>=0 && verifMinuteT<60 || verifMinuteP>=0 && verifMinuteP<60){
+    if(verifMinuteT>=0 && verifMinuteT<=120 || verifMinuteP>=0 && verifMinuteP<=120){
         if(verifSecondeT>=0 && verifSecondeT<60 || verifSecondeP>=0 && verifSecondeP<60){
-            return true;
+            if(!((verifSecondeT==0 && verifMinuteT==0) || (verifSecondeP==0 && verifMinuteP==0))){
+                return true;
+            }  
         }
     }
     // Envoie un message d'erreur
@@ -103,7 +136,12 @@ document.getElementById("monFormulaire").addEventListener("submit", function(eve
             minute = minuteT;
             seconde = secondeT;
             //Actualise l'affichage
-            document.getElementById("affichage").textContent = minute + ":" + seconde;
+            if(seconde == 0){
+                document.getElementById("affichage").textContent = minute + ":" + seconde + "0";
+            }
+            else {
+                document.getElementById("affichage").textContent = minute + ":" + seconde;
+            }
         }
         
     } catch (error) {
@@ -111,5 +149,3 @@ document.getElementById("monFormulaire").addEventListener("submit", function(eve
         
     }
 })
-
-

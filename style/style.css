@@ -1,9 +1,11 @@
 /* Assurer que le HTML et le body couvrent toute la page */
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #D50000 !important; /* Rouge vif */
+    background-color: #D50000 !important;
+    /* Rouge vif */
 }
 
 h1 {
@@ -27,7 +29,7 @@ h1 {
 #timeT {
     font-size: 25px;
     margin-right: 5px;
-    color :white;
+    color: white;
 }
 
 #timeP {
@@ -46,7 +48,8 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* S'assure que le conteneur couvre toute la hauteur */
+    min-height: 100vh;
+    /* S'assure que le conteneur couvre toute la hauteur */
 }
 
 /* Timer grand et centré */
@@ -63,15 +66,20 @@ h1 {
 
 /* Formulaire en bas de la page */
 #formulaire {
-    display: none; /* Masqué par défaut */
-    margin-top: 20px; /* Espacement au-dessus du formulaire */
+    display: none;
+    /* Masqué par défaut */
+    margin-top: 20px;
+    /* Espacement au-dessus du formulaire */
 }
 
 /* Disposition des boutons */
 .button-container {
-    display: flex; /* Utilisation de flexbox */
-    justify-content: center; /* Centre les boutons horizontalement */
-    margin-top: 20px; /* Espacement au-dessus des boutons */
+    display: flex;
+    /* Utilisation de flexbox */
+    justify-content: center;
+    /* Centre les boutons horizontalement */
+    margin-top: 20px;
+    /* Espacement au-dessus des boutons */
 }
 
 
@@ -81,21 +89,25 @@ h1 {
     background-color: #ffffff;
     border-radius: 10px;
     padding: 15px;
-    width: 100%; /* Taille du formulaire adaptée */
+    width: 100%;
+    /* Taille du formulaire adaptée */
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* Ajustement des groupes de champs pour qu'ils soient côte à côte */
 .form-group .input-group {
     display: flex;
-    justify-content: space-between; /* Pour espacer les champs */
+    justify-content: space-between;
+    /* Pour espacer les champs */
     align-items: center;
 }
 
 /* Réduction des champs d'entrée */
 .input-group input {
-    width: 45%; /* Réduit la largeur des champs à 45% de l'espace disponible */
-    margin: 0 5px; /* Espacement horizontal entre les champs */
+    width: 45%;
+    /* Réduit la largeur des champs à 45% de l'espace disponible */
+    margin: 0 5px;
+    /* Espacement horizontal entre les champs */
 }
 
 /* Ajustement du texte des labels pour alignement */
@@ -109,7 +121,8 @@ h1 {
 
 /* Bouton d'envoi */
 #formBouton {
-    width: 100%; /* Bouton de soumission en pleine largeur */
+    width: 100%;
+    /* Bouton de soumission en pleine largeur */
     padding: 10px;
     font-size: 16px;
 }
